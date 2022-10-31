@@ -1,7 +1,8 @@
-# Retrieve and print weather info for Merriam KS
+# Retrieve and store weather info for Merriam KS in database
 # TODO:
-# - Include sunrise/set info in output.
-# - Add basic filtering for weather conditions
+# - Determine and code cl options
+# - Complete data parsing of desired weather values
+# - Add database code
 import json
 from datetime import datetime
 from time import time
