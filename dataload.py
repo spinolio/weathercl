@@ -24,14 +24,14 @@ last_day = 0
 for hr3 in wthr_json['list']:
     dt = datetime.fromtimestamp(hr3['dt'])
     if dt.day != last_day:
-        print('\nDay  Time  Temp  Feel  Wind  Gust  Dir')
+        print('\nDay  Time  Temp  Feel Rain Wind  Gust  Dir')
         last_day = dt.day
     deg = hr3['wind']['deg'] + 22.5
     if deg >= 360:
         deg -= 360
     deg_index = int(deg/45)
-    print(dt.strftime('%a, %I %p'), '{temp:4.1f} ({feels_like:4.1f})'.format(**hr3['main']),
-            '{speed:4.1f} ({gust:4.1f}) {deg:3d}'.format(**hr3['wind']),
+    print(dt.strftime('%a  %I %p'), '{temp:4.1f} ({feels_like:4.1f})'.format(**hr3['main']),
+            '{:3.0f}'.format(hr3['pop']*100), '{speed:4.1f} ({gust:4.1f}) {deg:3d}'.format(**hr3['wind']),
             '{:2s}'.format(deg_bin[deg_index]), 
             '*'*int(hr3['wind']['speed']))
 
